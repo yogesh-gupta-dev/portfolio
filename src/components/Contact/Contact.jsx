@@ -17,41 +17,44 @@ const Contact = () => {
             <p className="contact-text">
               Whether you have a question, a project proposal, or just want to explore the possibilities of <span className="highlight">AI in Web Development</span>, my inbox is always open.
             </p>
-            
+
             <div className="contact-details">
               <div className="detail-item">
                 <span className="detail-label">Email</span>
-                <a href="mailto:yogesh@example.com" className="detail-value text-gradient hover-underline">
-                  yogesh@example.com
+                <a href="mailto:yogesh.development010@gmail.com" className="detail-value text-gradient hover-underline">
+                  yogesh.development010@gmail.com
                 </a>
               </div>
               <div className="detail-item">
                 <span className="detail-label">Location</span>
-                <span className="detail-value">Global / Remote</span>
+                <span className="detail-value">Delhi, India</span>
               </div>
             </div>
 
             <div className="social-links">
-              <a href="#" className="social-btn glass-panel">GitHub</a>
-              <a href="#" className="social-btn glass-panel">LinkedIn</a>
-              <a href="#" className="social-btn glass-panel">X / Twitter</a>
+              <a href="https://github.com/yogesh-gupta-dev" className="social-btn glass-panel">GitHub</a>
+              <a href="https://www.linkedin.com/in/yogesh-gupta-84393b235/" className="social-btn glass-panel">LinkedIn</a>
+              {/* <a href="#" className="social-btn glass-panel">X / Twitter</a> */}
             </div>
           </div>
 
-          <form className="contact-form glass-panel" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-group">
-              <label htmlFor="name" className="form-label">Name</label>
-              <input type="text" id="name" className="form-input" placeholder="John Doe" required />
-            </div>
+          <form action="https://formsubmit.co/yogesh.development010@gmail.com" method="POST" className="contact-form glass-panel">
+            <input type="hidden" name="_subject" value="New message from DevPortfolio!" />
+            <input type="hidden" name="_captcha" value="false" />
             
             <div className="form-group">
+              <label htmlFor="name" className="form-label">Name</label>
+              <input type="text" id="name" name="name" className="form-input" placeholder="John Doe" required />
+            </div>
+
+            <div className="form-group">
               <label htmlFor="email" className="form-label">Email</label>
-              <input type="email" id="email" className="form-input" placeholder="john@example.com" required />
+              <input type="email" id="email" name="email" className="form-input" placeholder="john@example.com" required />
             </div>
 
             <div className="form-group">
               <label htmlFor="message" className="form-label">Message</label>
-              <textarea id="message" rows="5" className="form-input resize-none" placeholder="Tell me about your project..." required></textarea>
+              <textarea id="message" name="message" rows="5" className="form-input resize-none" placeholder="Tell me about your project..." required></textarea>
             </div>
 
             <button type="submit" className="submit-btn">
@@ -61,7 +64,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-      
+
       <footer className="footer">
         <div className="container">
           <p>© {new Date().getFullYear()} Yogesh Gupta. Crafted with React & Vibe Coding.</p>

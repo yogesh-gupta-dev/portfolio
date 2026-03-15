@@ -1,4 +1,5 @@
 import './About.css';
+import profileImg from '../../assets/yash.jpg';
 
 const About = () => {
   return (
@@ -13,10 +14,8 @@ const About = () => {
         
         <div className="about-content">
           <div className="about-image-container glass-panel">
-            <div className="about-image-placeholder">
-              <div className="image-overlay"></div>
-              {/* Replace with actual image later */}
-              <span className="placeholder-text">Dev Portrait</span>
+            <div className="about-image-placeholder" style={{ backgroundImage: `url(${profileImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+              <div className="image-overlay" style={{ background: 'linear-gradient(to bottom, transparent, rgba(4, 5, 8, 0.3))' }}></div>
             </div>
             <div className="experience-badge glass-panel">
               <span className="years">2+</span>
