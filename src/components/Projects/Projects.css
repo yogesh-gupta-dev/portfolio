@@ -1,0 +1,214 @@
+.projects-section {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.projects-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+.projects-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition-standard);
+  background: transparent;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background: rgba(112, 0, 255, 0.2);
+  border-color: var(--accent-purple);
+  color: var(--text-primary);
+  box-shadow: 0 0 15px rgba(112, 0, 255, 0.3);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.project-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Mouse tracking border effect */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.card-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.project-card:hover .card-border {
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(112, 0, 255, 0.4),
+    transparent 40%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px; /* border thickness */
+}
+
+/* ------------------------------- */
+
+.project-image-container {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Background Placeholders */
+.gradient-bg-1 { background: linear-gradient(135deg, #1f0163, #02b6ff); }
+.gradient-bg-2 { background: linear-gradient(135deg, #440026, #ff2d20); }
+.gradient-bg-3 { background: linear-gradient(135deg, #0d324d, #7f5a83); }
+.gradient-bg-4 { background: linear-gradient(135deg, #ff5722, #7000ff); }
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 5, 8, 0.7);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-standard);
+  backdrop-filter: blur(5px);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-links {
+  display: flex;
+  gap: 1.5rem;
+  transform: translateY(20px);
+  transition: var(--transition-standard);
+}
+
+.project-card:hover .project-links {
+  transform: translateY(0);
+}
+
+.icon-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-code);
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: var(--transition-smooth);
+}
+
+.icon-link:hover {
+  background: var(--accent-purple);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(112, 0, 255, 0.5);
+}
+
+.project-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.project-tech-item {
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+}
+
+@media screen and (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

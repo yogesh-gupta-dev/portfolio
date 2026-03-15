@@ -1,0 +1,149 @@
+.skills-section {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.skills-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-direction: row-reverse;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+}
+
+.skills-group {
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.group-title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-item {
+  width: 100%;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.skill-percentage {
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.skill-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: var(--glass-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
+  /* Animation triggered when scrolled into view ideally, for now setup initial width */
+}
+
+/* AI Focus Section */
+.ai-focus {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--accent-purple);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(112, 0, 255, 0.05) 100%);
+}
+
+.ai-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.ai-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ai-tag {
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-standard);
+  cursor: default;
+}
+
+.ai-tag:hover {
+  transform: translateY(-3px) scale(1.05);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 5px 15px rgba(0, 240, 255, 0.2);
+}
+
+.tag-icon {
+  font-size: 1rem;
+}
+
+/* Abstract sound/vibe waves */
+.vibe-coding-visual {
+  margin-top: auto;
+  padding-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100px;
+}
+
+.wave {
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to top, var(--accent-cyan), var(--accent-purple));
+  border-radius: 5px;
+  animation: vibe 1.2s infinite ease-in-out alternate;
+}
+
+.wave:nth-child(2) {
+  animation-delay: -0.4s;
+}
+
+.wave:nth-child(3) {
+  animation-delay: -0.8s;
+}
+
+@keyframes vibe {
+  0% { height: 20px; }
+  100% { height: 80px; }
+}
+
+@media screen and (max-width: 960px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+}

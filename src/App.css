@@ -1,0 +1,72 @@
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden; /* Prevent horizontal scroll from absolute shapes */
+}
+
+/* Animated Background Shapes for depth and vibe */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.5;
+  animation: float 15s infinite ease-in-out alternate;
+}
+
+.shape-1 {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(112,0,255,0.2) 0%, rgba(0,0,0,0) 70%);
+  animation-duration: 25s;
+}
+
+.shape-2 {
+  bottom: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(0,240,255,0.15) 0%, rgba(0,0,0,0) 70%);
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+.shape-3 {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(255,0,127,0.1) 0%, rgba(0,0,0,0) 70%);
+  animation-duration: 20s;
+  animation-delay: -10s;
+}
+
+main {
+  position: relative;
+  z-index: 1; /* Keep above background shapes */
+}
+
+/* Hide default cursor on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  
+  /* When hovering over clickable elements, we can add class 'hovering' to cursor later if we want */
+  a, button, input, textarea, select {
+    cursor: none; 
+  }
+}
+
+/* Ensure cursor shows on mobile/touch devices where custom cursor won't work well */
+@media (max-width: 768px) {
+  .cursor-dot, .cursor-outline {
+    display: none;
+  }
+  body, a, button {
+    cursor: auto !important;
+  }
+}
